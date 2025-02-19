@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Resp Q | Quiz</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/gif" href="logo.png" sizes="16x16">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="wrapper">
+        <aside id="sidebar-wrapper">
+            <div class="sidebar-brand">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="index.html"><i class="fa-solid fa-book"></i>บทเรียน</a></li>
+                <li><a href="quiz.html"><i class="fa-solid fa-question"></i>แบบทดสอบ</a></li>
+                <li><a href="about.html"><i class="fa fa-info-circle"></i>เกี่ยวกับ</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <!-- Container สำหรับควิซ -->
+    <div class="quiz-container" id="quiz">
+        <div id="question-number" class="question-number"></div>
+        <div id="quiz-progress" class="quiz-progress">
+            <div id="quiz-progress-bar" class="quiz-progress-bar"></div>
+        </div>
+
+        <div id="questions">
+            <div class="question" data-question="การประเมินความเสี่ยงในองค์กรควรทำในขั้นตอนใด?"
+                 data-a="การรักษาความปลอดภัยของเครือข่าย"
+                 data-b="การฝึกอบรมพนักงาน"
+                 data-c="การจัดการความเสี่ยง"
+                 data-d="การสำรองข้อมูล"
+                 data-correct="c"></div> <!-- คำตอบ -->
+            <div class="question" data-question="ระบบใดที่ใช้ในการตรวจจับและป้องกันการโจมตีในเครือข่าย?"
+                 data-a="Patch Management System"
+                 data-b="Intrusion Detection System (IDS)"
+                 data-c="Firewall"
+                 data-d="การเข้ารหัสข้อมูล"
+                 data-correct="b"></div> <!-- คำตอบ -->
+            <div class="question" data-question="การเข้ารหัสข้อมูลช่วยป้องกันภัยคุกคามประเภทใด?"
+                 data-a="การดักฟังข้อมูลระหว่างการส่งผ่าน"
+                 data-b="การโจมตีแบบแรนซัมแวร์"
+                 data-c="การปล่อยมัลแวร์"
+                 data-d="การโจมตีแบบฟิชชิ่ง"
+                 data-correct="a"></div> <!-- คำตอบ -->
+            <div class="question" data-question="หลังจากการโจมตีทางไซเบอร์ องค์กรควรทำการวิเคราะห์เหตุการณ์เพื่ออะไร?"
+                 data-a="เพื่อลดความเสี่ยงในการโจมตีครั้งต่อไป"
+                 data-b="เพื่อระบุสาเหตุและวิธีการโจมตี"
+                 data-c="เพื่อเพิ่มประสิทธิภาพการป้องกันการโจมตี"
+                 data-d="เพื่อปรับปรุงระบบการสำรองข้อมูล"
+                 data-correct="b"></div> <!-- คำตอบ -->
+            <div class="question" data-question="การใช้ Multi-Factor Authentication (MFA) ช่วยป้องกันภัยคุกคามประเภทใด?"
+                 data-a="การใช้มัลแวร์เพื่อทำลายระบบ"
+                 data-b="การโจมตีแบบฟิชชิ่ง"
+                 data-c="การเข้าถึงระบบจากรหัสผ่านที่ถูกขโมย"
+                 data-d="การป้องกันการโจมตีทางเครือข่าย"
+                 data-correct="c"></div> <!-- คำตอบ -->
+        </div>        
+
+        <div class="quiz-header">
+            <h2 id="question"></h2>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" id="a" class="answer" />
+                    <label for="a" id="a_text"></label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="b" class="answer" />
+                    <label for="b" id="b_text"></label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="c" class="answer" />
+                    <label for="c" id="c_text"></label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="d" class="answer" />
+                    <label for="d" id="d_text"></label>
+                </li>
+            </ul>
+        </div>
+        <button id="submit">ส่งคำตอบ</button>
+    </div>
+
+    <section class="footer">
+        <p>เว็บไซต์นี้จัดทำขึ้นเพื่อวัตถุประสงค์ทางการศึกษาเท่านั้น © <span id="currentYear"></span></p>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>

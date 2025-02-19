@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Resp Q | Quiz</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/gif" href="logo.png" sizes="16x16">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="wrapper">
+        <aside id="sidebar-wrapper">
+            <div class="sidebar-brand">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="index.html"><i class="fa-solid fa-book"></i>บทเรียน</a></li>
+                <li><a href="quiz.html"><i class="fa-solid fa-question"></i>แบบทดสอบ</a></li>
+                <li><a href="about.html"><i class="fa fa-info-circle"></i>เกี่ยวกับ</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <!-- Container สำหรับควิซ -->
+    <div class="quiz-container" id="quiz">
+        <div id="question-number" class="question-number"></div>
+        <div id="quiz-progress" class="quiz-progress">
+            <div id="quiz-progress-bar" class="quiz-progress-bar"></div>
+        </div>
+
+        <div id="questions">
+            <div class="question" data-question='คำว่า "Cyber Warfare" หรือ สงครามไซเบอร์ หมายถึงอะไร?'
+                 data-a="การใช้ทหารในการโจมตีทางไซเบอร์"
+                 data-b="การโจมตีด้วยอาวุธทางทหาร"
+                 data-c="การโจมตีระบบสารสนเทศโดยแฮกเกอร์"
+                 data-d="การใช้เทคโนโลยีเพื่อโจมตีประเทศหรือองค์กร"
+                 data-correct="d"></div> <!-- คำตอบ -->
+            <div class="question" data-question="สงครามอิเล็กทรอนิกส์ (Electronic Warfare) มีสามประเภทหลักใดบ้าง?"
+                 data-a="EA, EP, ES"
+                 data-b="DDoS, Phishing, Hacking"
+                 data-c="Attack, Defense, Support"
+                 data-d="Propaganda, Disinformation, Misinformation"
+                 data-correct="a"></div> <!-- คำตอบ -->
+            <div class="question" data-question="การโจมตีแบบ DDoS (Distributed Denial of Service) มีวัตถุประสงค์อะไร?"
+                 data-a="จัดการข้อมูลข่าวกรอง"
+                 data-b="แฮกข้อมูลของฝ่ายตรงข้าม"
+                 data-c="ทำให้เครื่องหรือทรัพยากรเครือข่ายใช้บริการไม่ได้"
+                 data-d="ทำให้ผู้ใช้งานเว็บหลงเชื่อข้อมูลเท็จ"
+                 data-correct="c"></div> <!-- คำตอบ -->
+            <div class="question" data-question="Stuxnet เป็นตัวอย่างของการโจมตีทางไซเบอร์ที่มีลักษณะอะไร?"
+                 data-a="การโจมตีที่ใช้เทคนิค Phishing"
+                 data-b="การโจมตีที่ใช้ไวรัส (Worm) และช่องโหว่จากภายใน"
+                 data-c="การใช้คลื่นวิทยุในการรบกวนสัญญาณ"
+                 data-d="การโจมตีในรูปแบบของ Cyber Vandalism"
+                 data-correct="b"></div> <!-- คำตอบ -->
+            <div class="question" data-question='"False Flags" หรือ การจัดฉากในการโจมตีทางไซเบอร์มีวัตถุประสงค์อะไร?'
+                 data-a="ปล่อยข้อมูลเท็จเกี่ยวกับการโจมตี"
+                 data-b="สร้างสถานการณ์เพื่อให้ผู้อื่นเข้าใจผิดว่าเป็นฝ่ายตรงข้ามที่ทำการโจมตี"
+                 data-c="ใช้สัญญาณแม่เหล็กไฟฟ้าเพื่อโจมตี"
+                 data-d="ป้องกันการโจมตีจากภายนอก"
+                 data-correct="b"></div> <!-- คำตอบ -->
+        </div>        
+
+        <div class="quiz-header">
+            <h2 id="question"></h2>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" id="a" class="answer" />
+                    <label for="a" id="a_text"></label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="b" class="answer" />
+                    <label for="b" id="b_text"></label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="c" class="answer" />
+                    <label for="c" id="c_text"></label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="d" class="answer" />
+                    <label for="d" id="d_text"></label>
+                </li>
+            </ul>
+        </div>
+        <button id="submit">ส่งคำตอบ</button>
+    </div>
+
+    <section class="footer">
+        <p>เว็บไซต์นี้จัดทำขึ้นเพื่อวัตถุประสงค์ทางการศึกษาเท่านั้น © <span id="currentYear"></span></p>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
