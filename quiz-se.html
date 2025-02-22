@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Resp Q | Quiz</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/gif" href="logo.png" sizes="16x16">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="wrapper">
+        <aside id="sidebar-wrapper">
+            <div class="sidebar-brand">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="index.html"><i class="fa-solid fa-book"></i>บทเรียน</a></li>
+                <li><a href="quiz.html"><i class="fa-solid fa-question"></i>แบบทดสอบ</a></li>
+                <li><a href="about.html"><i class="fa fa-info-circle"></i>เกี่ยวกับ</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <!-- Container สำหรับควิซ -->
+    <div class="quiz-container" id="quiz">
+        <div id="question-number" class="question-number"></div>
+        <div id="quiz-progress" class="quiz-progress">
+            <div id="quiz-progress-bar" class="quiz-progress-bar"></div>
+        </div>
+
+        <div id="questions">
+            <div class="question" data-question='คำว่า "Cyber Security" หมายถึงอะไร?'
+                 data-a="การป้องกันอุปกรณ์อิเล็กทรอนิกส์จากการโจมตีทางอินเทอร์เน็ต"
+                 data-b="การรักษาความปลอดภัยของระบบเครือข่าย และโปรแกรมจากการโจมตีทางไซเบอร์"
+                 data-c="การเข้ารหัสข้อมูลในระบบคอมพิวเตอร์"
+                 data-d="การจัดการความเสี่ยงในการใช้เทคโนโลยี"
+                 data-correct="b"></div> <!-- คำตอบ -->
+            <div class="question" data-question="อะไรคือประเภทหลัก ๆ ของ Cyber Security ที่องค์กรควรให้ความสำคัญ?"
+                 data-a="ความปลอดภัยของคอมพิวเตอร์เพียงอย่างเดียว"
+                 data-b="ความปลอดภัยของข้อมูล ระบบ และเครือข่าย"
+                 data-c="ความปลอดภัยของระบบเก็บข้อมูล และแอปพลิเคชัน"
+                 data-d="ทั้งหมดที่กล่าวมา"
+                 data-correct="d"></div> <!-- คำตอบ -->
+            <div class="question" data-question="การโจมตีประเภทใดที่ทำให้ระบบ หรือเว็บไซต์ล่มโดยการส่งคำขอจำนวนมหาศาลจากหลายๆ เครื่อง?"
+                 data-a="SQL Injection"
+                 data-b="Phishing"
+                 data-c="DDoS (Distributed Denial of Service)"
+                 data-d="Ransomware"
+                 data-correct="c"></div> <!-- คำตอบ -->
+            <div class="question" data-question='"Man-in-the-Middle Attack" คืออะไร?'
+                 data-a="การโจมตีที่ทำให้ระบบล่ม"
+                 data-b="การดักฟังข้อมูลระหว่างผู้ส่ง และผู้รับ"
+                 data-c="การโจมตีที่ใช้ไวรัส หรือมัลแวร์ในไฟล์"
+                 data-d="การแฮ็กผ่านการหลอกลวงอีเมล"
+                 data-correct="b"></div> <!-- คำตอบ -->
+            <div class="question" data-question='ในการรักษาความปลอดภัยทาง IT การใช้ "Firewall" มีจุดประสงค์เพื่ออะไร?'
+                 data-a="การป้องกันข้อมูลที่ถูกส่งผ่านเครือข่ายจากการถูกดักฟัง"
+                 data-b="การเข้ารหัสข้อมูลในระบบ"
+                 data-c="การป้องกันการเข้าถึงเครือข่ายจากภายนอกที่ไม่ได้รับอนุญาต"
+                 data-d="การจัดการความเสี่ยงของข้อมูลในระบบ"
+                 data-correct="c"></div> <!-- คำตอบ -->
+        </div>        
+
+        <div class="quiz-header">
+            <h2 id="question"></h2>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" id="a" class="answer" />
+                    <label for="a" id="a_text"></label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="b" class="answer" />
+                    <label for="b" id="b_text"></label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="c" class="answer" />
+                    <label for="c" id="c_text"></label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="d" class="answer" />
+                    <label for="d" id="d_text"></label>
+                </li>
+            </ul>
+        </div>
+        <button id="submit">ส่งคำตอบ</button>
+    </div>
+
+    <section class="footer">
+        <p>เว็บไซต์นี้จัดทำขึ้นเพื่อวัตถุประสงค์ทางการศึกษาเท่านั้น © <span id="currentYear"></span></p>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>

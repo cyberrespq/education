@@ -1,0 +1,982 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Prompt", sans-serif;
+}
+
+i {
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+#wrapper {
+  display: flex;
+  flex: 1;
+  transition: all 0.5s ease;
+}
+
+#content-wrapper {
+  margin-left: 250px;
+  padding: 15px;
+  flex-grow: 1; /* ขยายเนื้อหาหลัก */
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  overflow-y: auto;
+  background: #212121;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 60px;
+}
+
+.sidebar-brand {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.sidebar-brand img {
+  max-width: 70px;
+  height: auto;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav > li {
+  line-height: 40px;
+}
+
+.sidebar-nav > li.active > a {
+  color: #fff;
+  background: #00c388;
+  border-left: 5px solid #00c388;
+}
+
+.sidebar-nav > li > a {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: #757575;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 30px;
+  background: transparent;
+}
+
+.sidebar-nav > li > a:hover {
+  color: #fff;
+  background: #00c388;
+  border-left: 5px solid #00c388;
+}
+
+#content-wrapper {
+  margin-left: 250px;
+  padding: 15px;
+  flex: 1;
+}
+
+#wrapper.toggled #content-wrapper {
+  margin-left: 60px;
+}
+
+@media (max-width: 900px) {
+  #sidebar-wrapper {
+    width: 60px;
+  }
+  #content-wrapper {
+    margin-left: 70px;
+  }
+  i {
+    font-size: 24px;
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  #sidebar-wrapper {
+    width: 60px;
+  }
+
+  #sidebar-wrapper .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #sidebar-wrapper .sidebar-nav > li {
+    width: 100%;
+    text-align: center;
+  }
+
+  #sidebar-wrapper .sidebar-nav > li > a {
+    font-size: 0;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #sidebar-wrapper .sidebar-nav > li > a i {
+    font-size: 24px;
+    color: #fff;
+  }
+
+  #sidebar-wrapper .sidebar-brand img {
+    max-width: 40px;
+  }
+
+  .shape-box {
+    width: 90%;
+    margin: 15px 0;
+  }
+
+  .shape-box .card-no {
+    font-size: 24px;
+  }
+
+  .shape-box .card-main-title {
+    font-size: 16px;
+  }
+
+  .shape-box .card-content {
+    font-size: 13px;
+  }
+
+  .shape-box:nth-child(2) {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  #sidebar-wrapper .sidebar-nav > li > a {
+    font-size: 0;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #sidebar-wrapper .sidebar-nav > li > a i {
+    font-size: 24px;
+    color: #fff;
+  }
+
+  #sidebar-wrapper .sidebar-brand img {
+    max-width: 40px;
+  }
+}
+
+@media (max-width: 300px) {
+  .shape-box .card-no {
+    font-size: 12px; /* ขนาดฟอนต์เล็กลง */
+  }
+
+  .shape-box .card-main-title {
+    font-size: 8px; /* ขนาดฟอนต์เล็กลง */
+  }
+
+  .shape-box .card-content {
+    font-size: 6px; /* ขนาดฟอนต์เล็กลง */
+  }
+
+  .read-more-btn {
+    font-size: 8px; /* ขนาดฟอนต์เล็กลง */
+    padding: 4px 8px; /* ลดขนาดปุ่ม */
+  }
+}
+
+.shape-box {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  height: 430px;
+  margin: 30px 10px 30px;
+  box-shadow: 0 6px 30px 0 rgba(0, 0, 0, .12);
+  overflow: hidden;
+  width: 30%;
+}
+
+.shape-box_half {
+  overflow: hidden;
+  text-align: left;
+}
+
+.shape-box_half:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: skewY(53.5deg);
+  transform-origin: top left;
+  transition: transform .4s;
+  background: #fff;
+  z-index: 1;
+}
+
+.shape-box > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+.shape-box_half figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 30px 30px;
+  transition: transform .4s;
+  transform: translateY(100%);
+  z-index: 3;
+}
+
+.shape-box_half figcaption .show-cont {
+  position: absolute;
+  bottom: calc(100% + 30px);
+  left: 30px;
+  right: 30px;
+  transition: bottom .4s;
+}
+
+.card-no {
+  font-size: 36px;
+  color: #00c388;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.card-main-title {
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #292b2c;
+}
+
+.card-content {
+  color: #9f9f9f;
+  margin-top: 20px;
+  line-height: 22px;
+  font-size: 15px;
+}
+
+.read-more-btn {
+  border: 2px solid #000000;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px 20px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s;
+  background: #282828;
+  color: #fff;
+  border-radius: 2px;
+  margin-top: 25px;
+  text-decoration: none;
+}
+
+.read-more-btn:hover {
+  background: transparent;
+  color: #00c388;
+}
+
+.shape-box_half > .after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #00c388;
+  opacity: 0;
+  transition: opacity .4s;
+}
+
+.shape-box_half:hover:before {
+  transform: skewY(20deg);
+}
+
+.shape-box_half:hover figcaption {
+  transform: translateY(0);
+}
+
+.shape-box_half:hover figcaption .show-cont {
+  bottom: 100%;
+}
+
+.shape-box_half:hover > .after {
+  opacity: 1;
+}
+
+@media (max-width: 13000px) {
+  .shape-box {
+    width: 45%;
+  }
+}
+
+@media (max-width: 1015px) {
+  .shape-box {
+    width: 45%;
+  }
+}
+
+@media (max-width: 900px) {
+  .shape-box:nth-child(3) {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .shape-box {
+    width: 100%;
+    margin: 20px auto;
+  }
+
+  .shape-box .card-no {
+    font-size: 20px;
+  }
+
+  .shape-box .card-main-title {
+    font-size: 14px;
+  }
+
+  .shape-box .card-content {
+    font-size: 12px;
+  }
+}
+
+/* Footer ที่ไม่ทับวัตถุอื่น */
+.footer {
+  background-color: #212121;
+  color: white;
+  text-align: center;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  margin-top: auto; /* ให้ footer อยู่ที่ล่างสุด */
+  z-index: 1000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer p {
+    font-size: 12px;
+  }
+}
+
+
+/* Sidebar Wrapper */
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  overflow-y: auto;
+  background: #212121;
+  transition: all 0.5s ease;
+}
+
+/* Content Wrapper */
+#content-wrapper {
+  margin-left: 250px; /* ชดเชยขนาดของ Sidebar */
+  padding: 15px;
+  flex-grow: 1; /* ทำให้เนื้อหาหลักขยายเต็มพื้นที่ */
+  transition: margin-left 0.5s ease;
+  box-sizing: border-box; /* เพื่อหลีกเลี่ยงปัญหา padding กับ width */
+  min-height: 100vh; /* ให้เนื้อหาเต็มหน้าจอ */
+}
+
+.image-container {
+  display: flex; /* จัดการรูปแบบการจัดวาง */
+  justify-content: center; /* จัดรูปภาพให้อยู่ตรงกลางแนวนอน */
+  align-items: center; /* จัดรูปภาพให้อยู่ตรงกลางแนวตั้ง */
+  max-width: 100%; /* จำกัดความกว้างของคอนเทนเนอร์ให้อยู่ในพื้นที่หน้าจอ */
+  overflow: hidden; /* ป้องกันการล้นของเนื้อหา */
+}
+
+.image-container img {
+  max-width: 70%; /* ปรับขนาดรูปภาพให้อยู่ในขอบเขตของคอนเทนเนอร์ */
+  height: auto; /* รักษาอัตราส่วนของรูปภาพ */
+  object-fit: contain; /* ป้องกันการตัดขอบรูปภาพ */
+}
+
+/* ลดขนาด Sidebar เมื่อย่อ */
+#wrapper.toggled #sidebar-wrapper {
+  width: 60px;
+}
+
+#wrapper.toggled #content-wrapper {
+  margin-left: 60px; /* ปรับระยะห่างสำหรับ Sidebar ย่อ */
+}
+
+/* Responsive Design สำหรับหน้าจอเล็ก */
+@media (max-width: 900px) {
+  #sidebar-wrapper {
+    width: 60px;
+  }
+  .image-container img {
+    max-width: 100%; /* ปรับขนาดรูปภาพให้อยู่ในขอบเขตของคอนเทนเนอร์ */
+  }
+
+  #content-wrapper {
+    margin-left: 70px; /* ลดระยะห่างในหน้าจอเล็ก */
+  }
+}
+
+@media (max-width: 480px) {
+  #sidebar-wrapper {
+    width: 60px;
+  }
+  #content-wrapper {
+    margin-left: 70px;
+  }
+  .image-container img {
+    max-width: 100%; /* ปรับขนาดรูปภาพให้อยู่ในขอบเขตของคอนเทนเนอร์ */
+  }
+}
+
+.select-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.chapter-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px; /* กำหนดความกว้างเท่ากัน */
+  height: 40px; /* กำหนดความสูงเท่ากัน */
+  background-color: #000;
+  color: #fff; /* สีขาวตั้งต้น */
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Prompt", sans-serif;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.chapter-btn:hover {
+  background-color: transparent;
+  color: #00c388; /* เปลี่ยนสีเมื่อ hover */
+  border-color: #000;
+}
+
+.chapter-btn:focus,
+.chapter-btn:active {
+  color: #00c388; /* สีเขียวเมื่อคลิก */
+  outline: none;
+}
+
+.chapter-btn.left {
+  margin-left: calc(250px + 15px); /* เว้นระยะจาก Sidebar */
+}
+
+.chapter-btn.right {
+  margin-right: 0px; /* ชิดขวา */
+}
+
+@media (max-width: 900px) {
+  .chapter-btn.left {
+    margin-left: calc(60px + 10px); /* ปรับระยะสำหรับ Sidebar ที่ย่อ */
+  }
+
+  .chapter-btn {
+    font-size: 12px;
+    width: 120px; /* ลดความกว้างสำหรับหน้าจอเล็ก */
+    height: 35px; /* ลดความสูง */
+  }
+}
+
+@media (max-width: 480px) {
+  .chapter-btn.left {
+    margin-left: 80px; /* ลดระยะในหน้าจอเล็ก */
+  }
+
+  .chapter-btn.right {
+    margin-right: auto; /* ช่วยขยับปุ่มขวาไปทางขวา */
+    margin-left: 15px; /* เพิ่มระยะห่างจากขอบขวา */
+  }
+
+  .chapter-btn {
+    font-size: 10px;
+    width: 100px; /* ลดความกว้างเพิ่ม */
+    height: 30px; /* ลดความสูงเพิ่ม */
+  }
+}
+
+@media (max-width: 360px) {
+  .chapter-btn.left {
+    margin-left: 80px; /* ลดระยะในหน้าจอเล็ก */
+  }
+
+  .chapter-btn.right {
+    margin-right: auto; /* ช่วยขยับปุ่มขวาไปทางขวา */
+    margin-left: 15px; /* เพิ่มระยะห่างจากขอบขวา */
+  }
+
+  .chapter-btn {
+    font-size: 8px;
+    width: 90px; /* ลดความกว้างเพิ่ม */
+    height: 30px; /* ลดความสูงเพิ่ม */
+  }
+}
+
+/* แบบทดสอบ */
+/* เส้นสไลด์ด้านบน */
+.quiz-progress {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 20px; /* ระยะห่างจากข้อความ */
+}
+
+/* เส้นสไลด์ที่แสดงระดับความคืบหน้า */
+.quiz-progress-bar {
+  position: absolute;
+  height: 100%;
+  background-color: #00c388;
+  width: 0%; /* เริ่มต้นที่ 0% */
+  transition: width 0.3s ease-in-out;
+}
+
+/* หมายเลขคำถาม */
+.question-number {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px; /* เพิ่มระยะห่างจากเส้น */
+  z-index: 2; /* ให้อยู่เหนือเส้น */
+}
+
+/* แบบทดสอบ */
+.quiz-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 600px;
+  width: 60%;
+  margin: 90px auto;
+  padding: 20px;
+  overflow: hidden;
+  margin-left: 400px;
+  margin-top: 0px;
+  margin-bottom: 120px;
+}
+
+.quiz-header {
+  padding: 1px;
+}
+
+h2 {
+  padding: 5px;
+  text-align: center;
+  font-size: 22px;
+}
+
+/* สไตล์ของคำตอบ */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  font-size: 17px; /* ขนาดที่เหมาะสม */
+  margin: 15px 0;
+}
+
+ul li label {
+  cursor: pointer;
+}
+
+/* ปุ่ม */
+button {
+  background-color: #212121;
+  color: #fff;
+  border: none;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 1rem;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #00c388;
+}
+
+button:focus {
+  outline: none;
+  background-color: #212121;
+}
+
+/* สไตล์สำหรับปุ่ม "ลองอีกครั้ง" และ "แบบทดสอบอื่น" */
+.final-buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 5px; /* Reduce space between buttons */
+  margin-top: 20px;
+}
+
+.final-buttons button {
+  width: 100%; /* Ensure buttons take up full width */
+  margin-top: 0px; /* Add space above buttons */
+}
+
+/* Media Queries */
+@media (max-width: 1280px) {
+  .quiz-container {
+    width: 60%;
+    margin-left: 360px;
+    margin-top: 0px;
+    margin-bottom: 150px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  ul li {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .quiz-container {
+    width: 60%;
+    margin-left: 310px;
+    margin-top: 0px;
+    margin-bottom: 450px;
+  }
+}
+
+@media (max-width: 920px) {
+  .quiz-container {
+    max-width: 70%;
+    margin-left: 290px;
+    margin-top: 0px;
+    margin-bottom: 450px;
+  }
+}
+
+@media (max-width: 857px) {
+  .quiz-container {
+    max-width: 70%;
+    margin-left: 180px;
+    margin-top: 0px;
+    margin-bottom: 380px;
+  }
+}
+
+@media (max-width: 820px) {
+  .quiz-container {
+    width: 100%;
+    margin-left: 130px;
+    margin-top: 0px;
+    margin-bottom: 330px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quiz-container {
+    width: 100%;
+    margin-left: 120px;
+    margin-top: 0px;
+    margin-bottom: 280px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  ul li {
+    font-size: 16px;
+  }
+  .question-number {
+    text-align: center;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 550px) {
+  .quiz-container {
+    width: 100%;
+    margin-left: 90px;
+    margin-top: 0px;
+    margin-bottom: 120px;
+  }
+}
+
+@media (max-width: 450px) {
+  .quiz-container {
+    width: 100%;
+    margin-left: 70px;
+    margin-top: 0px;
+    margin-bottom: 250px;
+  }
+  h2 {
+    padding: 1px;
+    text-align: center;
+    font-size: 16px;
+  }
+  ul li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .quiz-container {
+    width: 100%;
+    margin-left: 70px;
+    margin-top: 0px;
+    margin-bottom: 220px;
+  }
+  h2 {
+    padding: 1px;
+    text-align: center;
+    font-size: 16px;
+  }
+  ul li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .quiz-container {
+    max-width: 60%;
+    margin-left: 80px;
+    margin-top: 0px;
+    margin-bottom: 100px;
+  }
+}
+
+@media (max-width: 360px) {
+  .quiz-container {
+    max-width: 60%;
+    margin-left: 80px;
+    margin-top: 0px;
+    margin-bottom: 90px;
+  }
+}
+
+@media (max-width: 350px) {
+  .quiz-container {
+    max-width: 60%;
+    margin-left: 80px;
+    margin-top: 0px;
+    margin-bottom: 150px;
+  }
+}
+
+@media (max-width: 320px) {
+  .quiz-container {
+    max-width: 60%;
+    margin-left: 80px;
+    margin-top: 0px;
+    margin-bottom: 140px;
+  }
+  h2 {
+    padding: 0px;
+    text-align: center;
+    font-size: 14px;
+  }
+  ul li {
+    font-size: 12px;
+  }
+}
+
+
+
+/*
+* {
+  outline: 1px dashed red;
+}
+*/
+
+
+
+/* style ของหน้า infrmation */
+td {
+  width: 100%;
+  padding: 10px 20px; /* ระยะห่างรอบๆ เนื้อหา */
+  text-align: left; /* จัดข้อความให้อยู่ด้านซ้าย */
+  word-wrap: break-word; /* ตัดคำให้ขึ้นบรรทัดใหม่ */
+  overflow-wrap: break-word; /* ทำให้คำยาวๆ ไม่ล้นออก */
+  white-space: normal; /* ให้ข้อความขึ้นบรรทัดใหม่ */
+  word-break: break-word; /* เพิ่มการตัดคำหากไม่มีช่องว่าง */
+}
+
+.big {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.url-link {
+  word-wrap: break-word;
+  word-break: break-all;
+  display: block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.img-tvc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* จำกัดคอนเทนเนอร์ให้กว้างสุด */
+  height: auto;
+}
+
+.img-tvc img {
+  max-width: 20%;
+  max-height: auto;
+  object-fit: contain; /* ปรับให้รูปภาพไม่ถูก crop */
+  transition: all 0.3s ease; /* เพิ่มเอฟเฟกต์เวลาเปลี่ยนขนาด */
+}
+
+/* Responsive Font Sizes with Fixed px Values */
+@media (max-width: 991px) {
+  h1 {
+      font-size: 36px;
+  }
+  td {
+      font-size: 16px;
+      padding: 0px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+      font-size: 32px;
+  }
+  td {
+      font-size: 14px;
+      padding: 0px 10px;
+  }
+  
+  .img-tvc img {
+    max-width: 20%; /* หน้าจอขนาดเล็ก */
+    max-height: 50vh;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+      font-size: 28px;
+  }
+  td {
+      font-size: 13px;
+      padding: 0px 5px;
+  }
+  
+  .img-tvc img {
+    max-width: 50%; /* หน้าจอขนาดเล็กมาก */
+    max-height: 40vh;
+  }
+}
+
+@media (max-width: 360px) {
+  h1 {
+      font-size: 24px;
+  }
+  td {
+      font-size: 12px;
+    }
+}
+
+
+
+/* style ของฟอนต์ text ในบทเรียน */
+h1 {
+  font-size: 40px;
+}
+
+p {
+  font-size: 16px;
+}
+
+.content {
+  color: #00c388;
+  font-weight: bold;
+}
+
+/* Responsive Font Sizes with Fixed px Values */
+@media (max-width: 991px) {
+  h1 {
+      font-size: 36px;
+  }
+  p {
+      font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+      font-size: 32px;
+  }
+  p {
+      font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+      font-size: 28px;
+  }
+  p {
+      font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  h1 {
+      font-size: 24px;
+  }
+  p {
+      font-size: 12px;
+  }
+}

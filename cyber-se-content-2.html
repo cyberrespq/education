@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Resp Q | Cyber Security</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/gif" href="logo.png" sizes="16x16">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <!-- ไอคอน Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <img src="logo.png" alt="Logo">
+          </div>
+          <ul class="sidebar-nav">
+            <li class="home"><a href="index.html"><i class="fa-solid fa-book"></i>บทเรียน</a></li>
+            <li><a href="quiz.html"><i class="fa-solid fa-question"></i>แบบทดสอบ</a></li>
+            <li><a href="about.html"><i class="fa fa-info-circle" aria-hidden="true"></i>เกี่ยวกับ</a></li>
+          </ul> 
+        </aside>
+      
+        <!-- Content -->
+        <div id="content-wrapper">
+          <header>
+            <center><h1>การโจมตี และอันตรายทางไซเบอร์</h1></center>
+            <p>&emsp;&emsp;<font color="#00c388"><font size="5px"><b>การโจมตีและอันตรายทางไซเบอร์</b></font><font color="#292b2c"> เป็นการกระทำที่มุ่งร้ายที่เกิดขึ้นผ่านระบบคอมพิวเตอร์หรือเครือข่ายอินเทอร์เน็ต โดยมีหลายรูปแบบ ดังนี้</font></p>
+            <p>&emsp;&emsp;&emsp;&emsp;<b><font color="#292b2c">1. Malware (มัลแวร์)</b></font><br>&emsp;&emsp;&emsp;&emsp;&emsp;<b>&emsp;<font color="#292b2c">• ไวรัส (Virus)</b> คือ โปรแกรมที่ฝังตัวลงในไฟล์หรือโปรแกรมอื่น ๆ เมื่อผู้ใช้รันโปรแกรมเหล่านั้น ไวรัสจะถูกกระจายไปยังระบบอื่น<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>• มัลแวร์อื่น ๆ</b> เช่น โทรจัน (Trojan Horse) Worm Ransomware ที่มักใช้ขู่เรียกค่าไถ่</p></font> 
+            <p>&emsp;&emsp;&emsp;&emsp;<b><font color="#292b2c">2. Phishing (ฟิชชิง)</b></font><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font color="#292b2c">การหลอกลวงทางอีเมลหรือเว็บเพจปลอมที่เลียนแบบเว็บไซต์จริงเพื่อขโมยข้อมูลสำคัญ เช่น รหัสผ่านหรือข้อมูลบัตรเครดิต</font>
+            <p>&emsp;&emsp;&emsp;&emsp;<b><font color="#292b2c">3. DDoS (Distributed Denial of Service)</b></font><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font color="#292b2c">การโจมตีที่ทำให้ระบบหรือเว็บไซต์ล่มโดยการส่งคำขอจำนวนมหาศาลจากหลายๆ เครื่องไปยังเซิร์ฟเวอร์พร้อมกัน ทำให้ระบบไม่สามารถตอบสนองได้</p></font>
+            <p>&emsp;&emsp;&emsp;&emsp;<b><font color="#292b2c">4. Man-in-the-Middle Attack</b></font><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font color="#292b2c">การดักฟังข้อมูลระหว่างผู้ส่งและผู้รับ โดยแฮ็กเกอร์จะทำการแทรกตัวกลางระหว่างการสื่อสารเพื่อขโมยข้อมูลที่ส่งผ่าน เช่น ข้อมูลบัญชีธนาคารหรือบัตรเครดิต</p></font>
+            <p>&emsp;&emsp;&emsp;&emsp;<b><font color="#292b2c">5. SQL Injection</b></font><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font color="#292b2c">การโจมตีโดยการแทรกคำสั่ง SQL ลงในฟอร์มหรือช่องค้นหาในเว็บไซต์ที่มีการรักษาความปลอดภัยที่ไม่ดี ทำให้แฮ็กเกอร์สามารถเข้าถึงฐานข้อมูลของเว็บไซต์ได้</p></font>
+            <p>&emsp;&emsp;&emsp;&emsp;<b><font color="#292b2c">6. Cross-Site Scripting (XSS)</b></font><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font color="#292b2c">การโจมตีที่ทำให้แฮ็กเกอร์สามารถฝังสคริปต์ที่เป็นอันตรายลงในเว็บไซต์เพื่อหลอกให้ผู้ใช้ทำตามคำสั่งหรือขโมยข้อมูลของผู้ใช้</p></font>
+            <p>&emsp;&emsp;&emsp;&emsp;<b><font color="#292b2c">7. Password Attacks</b></font><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font color="#292b2c">การโจมตีที่มุ่งเน้นการขโมยหรือถอดรหัสผ่านของผู้ใช้ ซึ่งรวมถึงการโจมตีแบบ Brute Force หรือ Dictionary Attack</p></font>
+            <p>&emsp;&emsp;&emsp;&emsp;<b><font color="#292b2c">8. Zero-Day Attack</b></font><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font color="#292b2c">การโจมตีที่เกิดขึ้นทันทีหลังจากมีการค้นพบช่องโหว่ในระบบหรือซอฟต์แวร์ ซึ่งผู้ผลิตยังไม่มีเวลาแก้ไขหรือแพตช์ช่องโหว่นั้น</p></font>
+            <p>&emsp;&emsp;&emsp;&emsp;<b><font color="#292b2c">9. Social Engineering</b></font><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font color="#292b2c">การหลอกลวงโดยการใช้มนุษย์เป็นช่องทางโจมตี เช่น การโทรไปหาผู้ใช้เพื่อหลอกขอข้อมูลที่เป็นความลับหรือข้อมูลสำคัญ</p></font>
+            <p>&emsp;&emsp;&emsp;&emsp;<b><font color="#292b2c">10. Ransomware</b></font><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font color="#292b2c">มัลแวร์ที่เข้ารหัสไฟล์ของเหยื่อและขู่เรียกค่าไถ่เพื่อให้เหยื่อจ่ายเงินเพื่อแลกกับกุญแจปลดล็อกไฟล์</font></p>
+            <p>&emsp;&emsp;<font color="#00c388"><font size="5px"><b>อันตรายจากการโจมตีทางไซเบอร์</b></font><font color="#292b2c"> เป็นการกระทำที่มุ่งร้ายที่เกิดขึ้นผ่านระบบคอมพิวเตอร์หรือเครือข่ายอินเทอร์เน็ต โดยมีหลายรูปแบบ ดังนี้
+                <br>&emsp;&emsp;&emsp;&emsp;<b>• ข้อมูลรั่วไหล</b> หมายถึง ทำให้ข้อมูลส่วนบุคคลหรือข้อมูลสำคัญขององค์กรถูกขโมย
+                <br>&emsp;&emsp;&emsp;&emsp;<b>• เสียหายทางการเงิน</b> หมายถึง การโจรกรรมทางการเงิน หรือการจ่ายค่าไถ่จาก Ransomware
+                <br>&emsp;&emsp;&emsp;&emsp;<b>• ชื่อเสียงที่เสียหาย</b> หมายถึง องค์กรอาจเสียความน่าเชื่อถือหากข้อมูลลูกค้ารั่วไหล
+                <br>&emsp;&emsp;&emsp;&emsp;<b>• ระบบล่ม</b> หมายถึง เว็บไซต์หรือบริการหยุดทำงาน ส่งผลกระทบต่อธุรกิจและลูกค้า
+            </font></p>
+            <p>&emsp;&emsp;&emsp;&emsp;<font color="#292b2c">การป้องกันมัลแวร์ควรรวมถึงการติดตั้งโปรแกรมป้องกันไวรัสที่เชื่อถือได้ การอัปเดตซอฟต์แวร์อย่างสม่ำเสมอ และการไม่เปิดไฟล์แนบอีเมล หรือดาวน์โหลดไฟล์จากแหล่งที่ไม่น่าเชื่อถือ</font></p>
+            <br>
+          </header>
+          <div class="image-container">
+            <img src="cyber-se-2.jpg" alt="">
+          </div>
+        </div>
+      </div>   
+      
+      <section class="select-section">
+        <a href="cyber-se-content-1.html" class="chapter-btn left">◀ หน่วยที่ 1</a>
+        <a href="cyber-se.html" class="chapter-btn right">หน่วยทั้งหมด ▶</a>
+      </section>
+
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>เว็บไซต์นี้จัดทำขึ้นเพื่อวัตถุประสงค์ทางการศึกษาเท่านั้น © <span id="currentYear"></span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
